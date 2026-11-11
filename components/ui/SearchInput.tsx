@@ -6,7 +6,7 @@ export default function SearchInput({
   ...props
 }: ComponentProps<"input"> & { label: string }) {
   return (
-    <div className="relative w-full sm:max-w-xs">
+    <div className="relative w-full sm:max-w-md">
       <MagnifyingGlassIcon
         className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
         aria-hidden

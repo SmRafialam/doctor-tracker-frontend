@@ -1,6 +1,6 @@
 import { cn } from "@/lib/cn";
 
-const sizes = { md: "h-12 w-12 text-base", lg: "h-20 w-20 text-2xl" };
+const sizes = { sm: "h-9 w-9 text-xs", md: "h-12 w-12 text-base", lg: "h-20 w-20 text-2xl" };
 
 function initials(name: string) {
   return name

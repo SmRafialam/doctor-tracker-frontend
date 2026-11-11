@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
+const API_URL = process.env.API_URL ?? "http://localhost:5000";
+
 const nextConfig: NextConfig = {
-  /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
@@ -11,6 +12,12 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  // The browser only ever talks to this origin. /api/* is proxied to the
+  // Express server, so the httpOnly auth cookie is first-party (no
+  // third-party-cookie or CORS problems) and the API URL never ships to the client.
+  async rewrites() {
+    return [{ source: "/api/:path*", destination: `${API_URL}/api/:path*` }];
   },
 };
 
